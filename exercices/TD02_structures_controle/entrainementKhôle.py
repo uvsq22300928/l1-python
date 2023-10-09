@@ -1,4 +1,4 @@
-import time
+"""import time
 import random
 
 b = 0
@@ -17,3 +17,27 @@ for i in range(5):
 tempsFin = time.time()
 tempsFinal = tempsFin-tempsDepart
 print("Vous avez eu ", b, "bonnes réponses en", int(tempsFinal), 'secondes !')
+"""
+
+import time
+import random
+
+b = 0
+continuer = 'Y'
+tempsDepart = time.time()
+while continuer == 'Y':
+    num1 = random.randint(0, 9)
+    num2 = random.randint(0, num1)
+    reponseEleve = int(input("Que vaut"+str(num1)+"-"+str(num2)+"?"))
+    reponse = num1-num2
+    if reponse == reponseEleve:
+        print("bravo !!!")
+        b += 1
+    else:
+        print("mauvaise réponse :/")
+    continuer = str(input("Tapez 'Y' pour continuer "))
+
+tempsFin = time.time()
+tempsFinal = tempsFin-tempsDepart
+print("Vous avez eu ", b, "bonne(s) réponse(s) en\
+      ", int(tempsFinal), 'secondes !')
