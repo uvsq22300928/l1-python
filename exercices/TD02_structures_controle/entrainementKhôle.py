@@ -1,5 +1,6 @@
-"""import time"""
-import random
+"""import time
+import random"""
+import re
 """
 b = 0
 tempsDepart = time.time()
@@ -51,7 +52,7 @@ for i in range(100, 1001):
             cpt = 0  # on reinitiale les variables
 print(res)  # s'il manque des nombres non affichés
 """
-
+"""
 b1 = 0
 b2 = 0
 coup = ["pierre", "papier", "ciseau"]
@@ -86,3 +87,25 @@ if b1 > b2:
 elif b1 < b2:
     print("le score est de", b1, "pour vous et de", b2, "pour la machine,\
  vous avez donc perdue ! ")
+"""
+
+print("Pour que le mot de passe soit valide, vous devez respecter les \
+conditions suivantes :\n\
+- Au moins une lettre minuscule et une lettre en majuscule\n\
+- Au moins un chiffre\n\
+- Au moins un caractere parmi [$#@]\n\
+- La longueur du mot de passe se situe entre 6 et 16 caractères")
+
+mdp_utilisateur = str(input("rentrer un mot de passe ? "))
+print(" Votre mot de passe est : ", mdp_utilisateur)
+
+lettre_minuscule = re.search("[a-z]", mdp_utilisateur)
+lettre_majuscule = re.search("[A-Z]", mdp_utilisateur)
+chiffre = re.search("[0-9]", mdp_utilisateur)
+caractere_special = re.search("[$,#,@]", mdp_utilisateur)
+
+
+if (6 <= len(mdp_utilisateur) <= 16) and lettre_majuscule and lettre_minuscule and chiffre and caractere_special:
+    print('mot de passe valide')
+else:
+    print("rentrer un nouveau mot de passe")
